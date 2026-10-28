@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proteus</title>
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <img src="assets/logo.svg" alt="Proteus logo" class="logo">
+    <h1>Proteus</h1>
+    <p class="tagline">An extensible RISC-V core and software ecosystem for hardware security research</p>
+    <nav>
+      <a href="https://github.com/proteus-core">GitHub organization</a>
+    </nav>
+  </header>
+
+  <nav class="toc">
+    <a href="#about">About</a> &middot;
+    <a href="#core">The core</a> &middot;
+    <a href="#ecosystem">Software ecosystem</a> &middot;
+    <a href="#publications">Publications</a> &middot;
+    <a href="#theses">Master's theses</a>
+  </nav>
+
+  <main>
+
+    <section id="about">
+      <h2>About the project</h2>
+      <p>
+        Proteus is a research project to accelerate the implementation and evaluation of hardware security mechanisms.
+        It consists of two components, an extensible RISC-V CPU and a software ecosystem.
+      </p>
+    </section>
+
+    <section id="core">
+      <h2>The core</h2>
+      <p>
+        The <a href="https://github.com/proteus-core/proteus">Proteus core</a> is a RISC-V processor implemented in
+        SpinalHDL.
+        It uses a plugin system that makes the pipeline easy to configure and extend, and features many components
+        relevant to security research, such as a taint tracking mechanism, different speculation and prefetching
+        primitives and their tracking, caches, and a CHERI implementation.
+        The pipeline can be configured either as a classical 5-stage in-order CPU, or as an out-of-order design,
+        making it possible to evaluate extensions in different configurations.
+      </p>
+      <p>
+        The core was first introduced in the following presentation:
+      </p>
+      <ul class="pub-list">
+        <li>
+          Marton Bognar, Job Noorman, Frank Piessens.
+          <em><a href="https://riscv-europe.org/summit/2023/conference#proteus-an-extensible-risc-v-core-for-hardware-extensions">Proteus: An Extensible
+              RISC-V Core for Hardware Extensions.</a></em>
+          RISC-V Summit Europe, 2023.
+        </li>
+      </ul>
+    </section>
+
+    <section id="ecosystem">
+      <h2>Software ecosystem</h2>
+      <p>
+        The <a href="https://github.com/proteus-core/ecosystem">software ecosystem</a> repository contains the
+        tools needed to install, run, and evaluate Proteus: a RISC-V GNU toolchain with a
+        Newlib-based board support package, a Verilator simulation flow, formal and functional
+        verification, performance benchmarking, a non-interference-based security
+        evaluation framework, and hardware cost evaluation through <a
+          href="https://github.com/KULeuven-COSIC/EVAL-HD">EVAL-HD</a> and Xilinx Vivado.
+      </p>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <h3>Papers using the core</h3>
+      <ul class="pub-list">
+        <li>
+          Andrija Nešković, Christian Ewert, Mladen Berekovic, Saleh Mulhem.
+          <em><a href="https://arxiv.org/abs/2607.23218">SPARC: Automated Root-Cause Analysis of Pre-Silicon Power
+              Side-Channel Leakage in the Processor Design Flow.</a></em>
+          IEEE/ACM International Conference on Computer-Aided Design (ICCAD), 2026.
+        </li>
+        <li>
+          Eden Desmet, Suparna Kundu, Ingrid Verbauwhede.
+          <em><a href="https://doi.org/10.1007/978-3-032-38708-0_33">Masking Out of Order: Side-Channel Leaks from
+              Software-Masked Cryptography on Out-of-Order Processors and the Impact of Different Clock
+              Frequencies.</a></em>
+          European Symposium on Research in Computer Security (ESORICS), 2026.
+        </li>
+      </ul>
+
+      <h3>Papers extending the core</h3>
+      <ul class="pub-list">
+        <li>
+          Davide Davoli, Marton Bognar, Lesly-Ann Daniel, Benjamin Grégoire, Frank Piessens, Tamara Rezk.
+          <em><a href="https://arxiv.org/abs/2608.06124">dfence: Fine-Grained Speculation Barriers for Efficient
+              and Effective Hardware-Software
+              Protection in the Spectre Era.</a></em>
+          ACM SIGSAC Conference on Computer and Communications Security (CCS), 2026.
+        </li>
+        <li>
+          Jennifer Jackson, Minmin Jiang, David Oswald.
+          <em><a href="https://doi.org/10.46586/tches.v2025.i2.268-292">CHERI-Crypt: Transparent Memory Encryption on
+              Capability Architectures.</a></em>
+          IACR Transactions on Cryptographic Hardware and Embedded Systems (TCHES), 2025.
+        </li>
+        <li>
+          Hans Winderix, Marton Bognar, Lesly-Ann Daniel, Frank Piessens.
+          <em><a href="https://doi.org/10.1145/3658644.3690319">Libra: Architectural Support For Principled, Secure And
+              Efficient Balanced Execution
+              On High-End Processors.</a></em>
+          ACM SIGSAC Conference on Computer and Communications Security (CCS), 2024.
+          <span class="badge">Distinguished Paper Award</span>
+        </li>
+        <li>
+          Hans Winderix, Marton Bognar, Job Noorman, Lesly-Ann Daniel, Frank Piessens.
+          <em><a href="https://doi.org/10.1109/SP54263.2024.00047">Architectural Mimicry: Innovative Instructions to
+              Efficiently Address Control-Flow
+              Leakage in Data-Oblivious Programs.</a></em>
+          IEEE Symposium on Security and Privacy (S&amp;P), 2024.
+        </li>
+        <li>
+          Lesly-Ann Daniel, Marton Bognar, Job Noorman, Sébastien Bardin, Tamara Rezk, Frank Piessens.
+          <em><a href="https://www.usenix.org/conference/usenixsecurity23/presentation/daniel">ProSpeCT: Provably Secure
+              Speculation for the Constant-Time Policy.</a></em>
+          USENIX Security Symposium, 2023.
+        </li>
+        <li>
+          Thomas Van Strydonck, Job Noorman, Jennifer Jackson, Leonardo Alves Dias,
+          Robin Vanderstraeten, David Oswald, Frank Piessens, Dominique Devriese.
+          <em><a href="https://doi.org/10.1109/EuroSP57164.2023.00070">CHERI-TrEE: Flexible Enclaves on Capability
+              Machines.</a></em>
+          IEEE European Symposium on Security and Privacy (EuroS&amp;P), 2023.
+        </li>
+      </ul>
+    </section>
+
+    <section id="theses">
+      <h2>Master's theses</h2>
+      <p>
+        Proteus has been used and extended in a number of master's theses:
+      </p>
+      <ul class="pub-list">
+        <li><span class="student">Rune Verachtert</span> <span class="year">(2025&ndash;2026)</span></li>
+        <li><span class="student">Vincent Penders</span> <span class="year">(2025&ndash;2026)</span></li>
+        <li><span class="student">Robbe Titeca</span> <span class="year">(2025&ndash;2026)</span></li>
+        <li><span class="student">Nik Huybrechts</span> <span class="year">(2025&ndash;2026)</span></li>
+        <li><span class="student">Jens Sprengers</span> <span class="year">(2024&ndash;2025)</span></li>
+        <li><span class="student">Rémy Feyerick</span> <span class="year">(2023&ndash;2024)</span></li>
+        <li><span class="student">Seppe Vanderhallen</span> <span class="year">(2023&ndash;2024)</span></li>
+        <li><span class="student">Robbe Van de Velde</span> <span class="year">(2023&ndash;2024)</span></li>
+        <li><span class="student">Alexander Lescroart</span> <span class="year">(2022&ndash;2023)</span></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>The Proteus project was started at <a href="https://distrinet.cs.kuleuven.be/">DistriNet, KU Leuven</a>.
+      See the <a href="https://github.com/proteus-core">proteus-core GitHub organization</a> for all code.</p>
+  </footer>
+
+</body>
+
+</html>
